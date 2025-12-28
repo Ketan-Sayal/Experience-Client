@@ -1,0 +1,57 @@
+import type { ReactElement } from "react";
+import { SpinnerCircular } from 'spinners-react';
+
+interface IButton{
+    text?:string;
+    onClick?:(()=>void) | (()=>Promise<void>);
+    className?:string;
+    type?: "button" | "submit";
+    disabled?:boolean;
+    onlyYellow?:boolean;
+    endIcon?: ReactElement | null;
+    curve?: "rounded-md" | "rounded-full" | "rounded-lg";
+    startIcon?:ReactElement | null;
+    padding?: "p-4" | "p-0" | "",
+    loading?:boolean;
+    loadingText?:string;
+}
+
+const Button = ({
+    text="",
+    className="",
+    onClick=()=>{},
+    type="button",
+    disabled=false,
+    onlyYellow=true,
+    endIcon=null,
+    curve="rounded-md",
+    startIcon=null,
+    padding="p-4",
+    loading=false,
+    loadingText="Loading",
+    ...props
+}:IButton) => {
+  const defaultStyles = `${padding} w-full text-center text-black px-3 py-2 font-medium disabled:bg-gray-600 disabled:text-gray-500`;
+  return (
+    <button 
+    type={type}
+    className={`${onlyYellow?"bg-yellow-600":""} ${defaultStyles} ${className} ${curve}`} disabled={disabled || loading} onClick={onClick} {...props}>
+      {loading?(
+        <div className="flex gap-2 justify-center items-center text-white">
+          {loadingText && <p className="font-semibold">{loadingText}</p>}
+          <SpinnerCircular size={20} thickness={100} speed={100} color="rgba(0, 0, 0, 0.44)" secondaryColor="#ffffff" />
+        </div>
+      ):text?(<div className="flex items-center justify-center gap-1">
+        {startIcon && startIcon}
+        <p>{text}</p>
+        {endIcon && endIcon}
+      </div>):(<>
+      {startIcon && startIcon}
+      {endIcon && endIcon}
+      </>
+      )}
+    </button>
+  )
+}
+
+export default Button
