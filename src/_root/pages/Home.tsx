@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <InfiniteScroll 
-      className='w-full px-4 py-4 sm:px-6 md:px-8 lg:px-24 w-full'
+      className='w-full px-4 py-4 sm:px-6 md:px-8 lg:px-24'
       dataLength={totalDataLength}
       next={fetchNextPage}
       hasMore={hasNextPage || false}
