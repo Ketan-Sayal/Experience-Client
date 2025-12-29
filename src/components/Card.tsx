@@ -54,7 +54,15 @@ const Card = ({pic,
   return (
     <>
     {isUpdate && <UpdateModal open={isUpdate} setOpen={setIsUpdate} _id={_id}/>}
-    <div className="w-64 h-[21rem] relative bg-gray-50 rounded-lg">
+    <div 
+    onClick={()=>{
+              dispatch(resetQuantity());
+              dispatch(setDate(new Date()));
+              dispatch(setTime(""));
+              dispatch(setSubTotal(price));
+              navigate(`/experience/details/${_id}`);
+        }}
+    className="w-full xl:w-64 h-[21rem] relative bg-gray-50 rounded-lg">
       <div className="w-full h-[50%]">
         <img src={pic||image} alt="image" className="w-full h-full rounded-t-lg" />
       </div>
@@ -62,10 +70,10 @@ const Card = ({pic,
         <div className="flex justify-between items-center">
             <p className="text-lg">{`${title?.length>7?title?.substring(0, 8) + "...":title}`}</p>
             <div className="px-2 py-1 bg-gray-200 rounded-md">
-                <p className="text-xs font-semibold">{`${place?.length>12?place?.substring(0, 11)+"...":place}`}</p>
+                <p className="text-xs font-semibold">{`${place?.length>12?place?.substring(0, 6)+"...":place}`}</p>
             </div>
         </div>
-        <p className="text-gray-500 text-xs w-full">{`${description?.length>88? description?.substring(0, 89) + "...":description}`}</p>
+        <p className="text-gray-500 text-xs w-full">{`${description?.length>88? description?.substring(0, 65) + "...":description}`}</p>
         <div className="pt-2 px-4 w-full absolute left-0 bottom-2 right-0 flex items-center justify-between">
             {!isUpdateOrDelete?<div className="flex items-center pr-8">
                 <p className="text-xs pr-1">From</p>
@@ -98,7 +106,7 @@ const Card = ({pic,
               dispatch(setSubTotal(price));
               navigate(`/experience/details/${_id}`);
             }}
-            text="View Details" className="text-sm max-w-fit"/>
+            text="View Details" className="text-sm max-w-fit block md:hidden xl:block"/>
         </div>
       </div>
     </div>

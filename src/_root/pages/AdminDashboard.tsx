@@ -6,6 +6,8 @@ import Plus from "../../icons/Plus";
 import { useState } from "react";
 import Modal from "../../components/Modal";
 
+
+
 const AdminDashboard = () => {
   const {data, isLoading, isError} = GetAllExperiences();
   const [open, setOpen] = useState(false);
@@ -13,17 +15,21 @@ const AdminDashboard = () => {
     return <Navigate to={"/"}/>
   }
 
+
+
   if(isLoading){
     return <div className="w-full pt-2">
         <h4 className='text-gray-500 pt-2 text-xs text-center'>Loading...</h4>
     </div>
   }
 
+
+
   return (
-    <div className="w-full h-full overflow-hidden">
+    <div className="w-full h-full overflow-auto p-1 md:p-4">
       {open && <Modal open={open} setOpen={setOpen}/>}
-      <div className="grid gap-3 grid-cols-5">
-        <div className="w-64 relative top-14 h-[12rem]  bg-gray-100 rounded-lg shadow flex justify-center items-center">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="w-full xl:w-64 xl:relative xl:top-14 h-[12rem] bg-gray-100 rounded-lg shadow flex justify-center items-center">
             <Button 
             onClick={()=>setOpen(true)}
             text="Create" className="max-w-fit" endIcon={<Plus/>}/>
@@ -43,5 +49,7 @@ const AdminDashboard = () => {
     </div>
   )
 }
+
+
 
 export default AdminDashboard;

@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
+		"screens":{
+			"cs":"1017px",
+		},
   		colors: {
   			green: {
   				'500': '#24AC39'
@@ -68,6 +71,7 @@ export default {
   		}
   	}
   },
+  
   plugins: [require("tailwindcss-animate")],
 }
 

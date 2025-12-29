@@ -12,7 +12,7 @@ const AdminLayout = () => {
       <div className="w-full">
         <TopBar/>
       </div>
-      <div className="px-24 py-4">
+      <div className="px-2 py-2 lg:px-24 lg:py-4">
         <Outlet/>
       </div>
     </div>
