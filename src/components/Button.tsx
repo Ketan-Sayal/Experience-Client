@@ -37,7 +37,10 @@ const Button = ({
   return (
     <button 
     type={type}
-    className={`${onlyYellow?"bg-yellow-600":""} ${defaultStyles} ${className} ${curve} transition-all duration-200`} disabled={disabled || loading} onClick={onClick} {...props}>
+    className={`${onlyYellow?"bg-yellow-600":""} ${defaultStyles} ${className} ${curve} transition-all duration-200`} disabled={disabled || loading} onClick={(e)=>{
+      e.stopPropagation();
+      onClick();
+    }} {...props}>
       {loading?(
         <div className="flex gap-1 sm:gap-2 justify-center items-center text-white">
           {loadingText && <p className="font-semibold text-xs sm:text-sm xl:text-base whitespace-nowrap">{loadingText}</p>}
