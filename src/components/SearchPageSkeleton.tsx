@@ -4,8 +4,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const SearchPageSkeleton = () => {
   return (
     <div className='bg-white min-h-screen'>
-    <div className="px-24 py-8">
-            <div className="grid gap-3 grid-cols-5">
+    <div className="w-full px-4 py-4 sm:px-6 md:px-8 lg:px-24">
+            <div className="w-full grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               
               {Array(6)
                 .fill(0)

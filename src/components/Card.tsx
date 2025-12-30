@@ -77,7 +77,7 @@ const Card = ({pic,
         <div className="pt-2 px-4 w-full absolute left-0 bottom-2 right-0 flex items-center justify-between">
             {!isUpdateOrDelete?<div className="flex items-center pr-8">
                 <p className="text-xs pr-1">From</p>
-                <h1 className="text-lg">${price}</h1>
+                <h1 className="text-lg">₹{price}</h1>
             </div>:(<div className="flex gap-1">
               <Button 
                 onClick={handleDelete}
