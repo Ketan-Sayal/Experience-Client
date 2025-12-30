@@ -100,7 +100,7 @@ const Checkout = () => {
     }
     
   return (
-    <div className="px-24 py-4">
+    <div className="w-full px-4 py-4 sm:px-6 md:px-8 lg:px-24">
       <div className="flex items-center gap-2">
         <LeftArrow 
         onClick={()=>{
@@ -113,8 +113,8 @@ const Checkout = () => {
         />
         <p className="font-semibold text-xs">Checkout</p>
       </div>
-      <div className="pt-4 flex gap-7 w-full">
-        <div className="bg-gray-50 p-4 w-[60%] h-fit rounded-md">
+      <div className="pt-4 flex flex-col md:flex-row gap-7 w-full">
+        <div className="bg-gray-50 p-4 w-full md:w-[60%] h-fit rounded-md">
             <form 
             onSubmit={handleSubmit(promoCodeSubmit)}
             className="flex flex-col gap-4 w-full">
@@ -149,7 +149,7 @@ const Checkout = () => {
                 </div>
             </form>
         </div>
-        <div className="bg-gray-50 p-4 w-[50%] flex flex-col gap-1 rounded-lg max-h-fit">
+        <div className="bg-gray-50 p-4 w-full md:w-[50%] flex flex-col gap-1 rounded-lg max-h-fit">
                 <div className="flex justify-between items-center">
                     <p className="text-xs text-gray-810">Experience</p>
                     <p className="text-xs">{experience?.title}</p>

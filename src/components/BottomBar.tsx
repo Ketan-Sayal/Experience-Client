@@ -48,9 +48,9 @@ interface IBottomBar{
 const BottomBar = ({ date, setDate, time, setTime, experience=null }: IBottomBar) => {
   const [dateI, setDateI] = useState<number>(-1);
   return (
-    <div className="pt-4 flex flex-col gap-3 w-[67%]">
+    <div className="pt-4 flex flex-col gap-3 w-full md:w-[65%]">
       <h1 className="text-lg">{(experience && experience?.title) || ''}</h1>
-      <p className="text-gray-810">
+      <p className="text-gray-810 md:text-pretty text-justify">
         {(experience && experience?.description) || "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
       </p>
 

@@ -19,14 +19,14 @@ const TopBar = () => {
   const user = useAppSelector((state)=>state.auth).value;
   const admin = useAppSelector((state)=>state.admin).value;
   const dispatch = useAppDispatch();
-  const searchRef = useRef<HTMLInputElement>(null);
+  const searchRef = useRef<HTMLInputElement | null>(null);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   
   const navigate = useNavigate();
 
-  const handleSearch = (ref: React.RefObject<HTMLInputElement> | null) => {
+  const handleSearch = (ref: React.RefObject<HTMLInputElement | null>) => {
     const searchVal = ref?.current?.value;
     if(ref && ref.current && searchVal){
       ref.current.value = "";
@@ -113,7 +113,7 @@ const TopBar = () => {
         <Button 
           text="Search" 
           className="max-w-fit px-4 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all" 
-          onClick={()=>handleSearch(mobileSearchRef as React.RefObject<HTMLInputElement>)}
+          onClick={()=>handleSearch(mobileSearchRef)}
         />
       </div>
       
