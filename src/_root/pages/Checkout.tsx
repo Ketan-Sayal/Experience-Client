@@ -67,6 +67,7 @@ const Checkout = () => {
         setPromoCode(offerData.code);
         const discount = experience.price * (offerData.offerPercent)/100;
         setDiscount(discount);
+        toast.success("Promo code is claimed");
         dispatch(setSubTotal(prevSub-discount));
     }
     
@@ -80,7 +81,6 @@ const Checkout = () => {
         try {
             if(discount){
                 await validatePromo({token, offerCode:promoCode, experienceId:experience?._id});
-                toast.success("Promo code is claimed");
             }
 
             const res = await bookExperience({experienceId:experience?._id, date:new Date(date), timings:time, token, amount:subTotal+59, user});
