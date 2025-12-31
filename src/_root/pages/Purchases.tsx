@@ -1,18 +1,23 @@
-import { useParams } from "react-router-dom"
-import { GetExperienceBySearchVal } from "../../utils/react-queries/queries/query-mutations";
+import { GetUserPurchases } from "../../utils/react-queries/queries/query-mutations";
 import SearchPageSkeleton from "../../components/SearchPageSkeleton";
+import Cookies from "js-cookie";
 import Card from "../../components/Card";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
-const SearchPage = () => {
-    const {searchVal} = useParams();
-    const {isLoading, data:experienceData, isError} = GetExperienceBySearchVal(searchVal || '');
+const Purchases = () => {
+    const token = Cookies.get("auth-booklit-token");
+    const navigate = useNavigate();
+    if(!token){
+        navigate("/");
+    }
+    const {isLoading, data:experienceData, isError} = GetUserPurchases(token || '');
     if(isLoading){
         return <SearchPageSkeleton/>
     }
 
     if(isError){
-      toast.error("Search failed");
+      toast.error("Something went wrong");
     }
     
   return (
@@ -32,11 +37,11 @@ const SearchPage = () => {
         />)}
         </>
       ):(<p className='text-gray-500 pt-2 w-screen text-xs text-center'>
-        No results found
+        No Purchases yet
       </p>)}
       </div>
     </div>
   )
 }
 
-export default SearchPage;
+export default Purchases;

@@ -14,6 +14,7 @@ import Login from "../icons/Login"
 import Signup from "../icons/Signup"
 import { toast } from "sonner"
 import Options from "../icons/Options"
+import Money from "../icons/Money"
 
 const TopBar = () => {
   const user = useAppSelector((state)=>state.auth).value;
@@ -55,7 +56,7 @@ const TopBar = () => {
       <div className="w-full px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 flex items-center justify-between shadow-lg bg-white">
         <div className="flex gap-2 sm:gap-3 items-center">
           <div className="">
-            <Logo/>
+            <Logo setFn={setOpen}/>
           </div>
           {user._id!=null? <>
             <Button curve="rounded-md" onlyYellow={false} className="hover:bg-black hover:text-yellow-600 duration-200 md:block hidden" onClick={()=>{
@@ -63,6 +64,11 @@ const TopBar = () => {
               Cookies.remove("auth-booklit-token");
               toast.success("User Logged out");
             }} text="Logout" startIcon={<Logout/>}/>
+            <Button 
+            onClick={()=>{
+              navigate("/purchases");
+            }}
+            className="hover:bg-black hover:text-yellow-600 duration-200 md:block hidden" text="Purchases" onlyYellow={false} startIcon={<Money/>}/>
           </>: admin._id!==null?(
             <>
             <Button curve="rounded-md" text="Logout" onlyYellow={false} className="hover:bg-black hover:text-yellow-600 duration-200 md:block hidden" onClick={()=>{
@@ -103,7 +109,6 @@ const TopBar = () => {
       {open && (
   <div className="md:hidden absolute top-full left-0 right-0 bg-gradient-to-b from-white to-gray-50 shadow-2xl border-t-2 border-yellow-600 z-50 backdrop-blur-sm animate-in slide-in-from-top duration-200">
     <div className="px-6 py-5 flex flex-col gap-4">
-      {/* Search Section with enhanced styling */}
       <div className="flex gap-2">
         <Input 
           ref={mobileSearchRef} 
@@ -116,17 +121,14 @@ const TopBar = () => {
           onClick={()=>handleSearch(mobileSearchRef)}
         />
       </div>
-      
-      {/* Stylish Divider */}
       <div className="flex items-center gap-2">
         <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         <span className="text-xs text-gray-400 font-medium">MENU</span>
         <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
       </div>
-      
-      {/* Auth Buttons with enhanced styling */}
       <div className="flex flex-col gap-3">
         {user._id!=null? (
+          <>
           <Button 
             curve="rounded-lg" 
             onlyYellow={false} 
@@ -140,6 +142,18 @@ const TopBar = () => {
             text="Logout" 
             startIcon={<Logout/>}
           />
+          <Button 
+              onClick={()=>{
+                navigate("/purchases");
+                setOpen(false);
+              }}
+              curve="rounded-lg"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 w-full py-3" 
+              text="Purchases" 
+              onlyYellow={false} 
+              startIcon={<Money/>}
+            />
+          </>
         ): admin._id!==null?(
           <>
             <Button 

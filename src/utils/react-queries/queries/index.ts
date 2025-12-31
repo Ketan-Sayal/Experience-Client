@@ -250,6 +250,18 @@ const updateExperience = async(data:{title:string; description:string; price:num
     }
 }
 
+const getUserPurchases = async({token}:{token:string})=>{
+    try {
+        const res = await axios.get(`${config.backendUrl}/api/v1/users/user/purchases`, {headers:{
+            "Authorization":token,
+        }});
+        return res.data.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
 export {
     signup, 
     signin,
@@ -264,4 +276,5 @@ export {
     createExperience,
     deleteExperience,
     updateExperience,
+    getUserPurchases
 }

@@ -1,5 +1,5 @@
 import {useInfiniteQuery, useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import { adminSignin, createBooking, createExperience, deleteExperience, getAllExperiences, getExperienceById, getExperiences, getSearchData, getUserDataByToken, signin, signup, updateExperience, validatePromo } from ".";
+import { adminSignin, createBooking, createExperience, deleteExperience, getAllExperiences, getExperienceById, getExperiences, getSearchData, getUserDataByToken, getUserPurchases, signin, signup, updateExperience, validatePromo } from ".";
 import { KEYS } from "./queryKeys";
 
 interface IUser{
@@ -33,8 +33,12 @@ export const AdminSigninMutation = ()=>{
 }
 
 export const BookExperenceMutation = ()=>{
+    const queryClient = useQueryClient();
     return useMutation({
         mutationFn:(data:{ experienceId:string, date:Date, timings:string, token:string, amount:number, user:IUser})=>createBooking(data),
+        onSuccess:()=>{
+            queryClient.invalidateQueries({queryKey:[KEYS.GET_USER_PURCHASES]});
+        }
     })
 }
 
@@ -115,4 +119,11 @@ export const GetExperienceBySearchVal = (searchVal:string)=>{
         queryKey:[KEYS.GET_EXPERIENCE_BY_SEARCH_VALUE, searchVal],
         queryFn:()=>getSearchData(searchVal),
     })
+}
+
+export const GetUserPurchases = (token:string)=>{
+    return useQuery({
+        queryKey:[KEYS.GET_USER_PURCHASES, token],
+        queryFn:()=>getUserPurchases({token}),
+    });
 }

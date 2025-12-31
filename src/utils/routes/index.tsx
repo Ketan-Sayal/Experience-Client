@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { AdminLoginPage, Signin, Signup } from "../../_auth";
-import { Home, ExperiencePage, Checkout, Confirm, SearchPage, AdminDashboard } from "../../_root";
+import { Home, ExperiencePage, Checkout, Confirm, SearchPage, AdminDashboard, Purchases } from "../../_root";
 import RootLayout from "../../_root/RootLayout";
 import AuthLayout from "../../_auth/AuthLayout";
 import AdminLayout from "../../_root/AdminLayout";
@@ -58,4 +58,9 @@ export const routes:IRoutes[] = [
         element:<AdminDashboard/>,
         layout: <AdminLayout/>
     },
+    {
+        path:"/purchases",
+        element:<Purchases/>,
+        layout: <RootLayout/>
+    }
 ]
