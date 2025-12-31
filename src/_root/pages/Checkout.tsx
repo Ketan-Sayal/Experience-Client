@@ -80,6 +80,7 @@ const Checkout = () => {
         try {
             if(discount){
                 await validatePromo({token, offerCode:promoCode, experienceId:experience?._id});
+                toast.success("Promo code is claimed");
             }
 
             const res = await bookExperience({experienceId:experience?._id, date:new Date(date), timings:time, token, amount:subTotal+59, user});
