@@ -77,10 +77,10 @@ const Modal = ({setOpen, open}:IModal) => {
 
   return (
     <div 
-      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex justify-center items-center bg-black/50 z-10">
+      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-6 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
             <div 
             ref={modalRef}
-            className="bg-white w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
+            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
               <div className="absolute top-3 right-3">
                   <Button onlyYellow={false}
                    onClick={()=>setOpen(false)}

@@ -83,10 +83,10 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
 
   return (
     <div 
-      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex justify-center items-center bg-black/50 z-10">
+      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-6 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
             <div 
             ref={modalRef}
-            className="bg-white w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
+            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
               <div className="absolute top-3 right-3">
                   <Button onlyYellow={false}
                    onClick={()=>setOpen(false)}
@@ -95,7 +95,7 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
                    padding="p-0"
                    endIcon={<Cross/>}/>
               </div>
-              <div className="max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar">
+              <div className="max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar w-full">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full px-5 py-4 flex flex-col gap-3">
                 <h1 className="text-center text-lg text-gray-810">Update Experience</h1>
                 <div className="flex flex-col gap-2">
