@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { toast } from 'sonner';
 import type { AxiosError } from 'axios';
+import TextArea from './TextArea';
 
 interface IUpdateModal{
     open:boolean;
@@ -83,10 +84,10 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
 
   return (
     <div 
-      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-6 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
+      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-5 pt-8 md:pt-0 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
             <div 
             ref={modalRef}
-            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
+            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[75vh] md:max-h-[90vh] relative">
               <div className="absolute top-3 right-3">
                   <Button onlyYellow={false}
                    onClick={()=>setOpen(false)}
@@ -95,7 +96,7 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
                    padding="p-0"
                    endIcon={<Cross/>}/>
               </div>
-              <div className="max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar w-full">
+              <div className="max-h-[75vh] md:max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full px-5 py-4 flex flex-col gap-3">
                 <h1 className="text-center text-lg text-gray-810">Update Experience</h1>
                 <div className="flex flex-col gap-2">
@@ -107,7 +108,7 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810">Description</h1>
-                  <Input 
+                  <TextArea
                   {...register("description")}
                   placeholder="It will be a good experience" className="text-gray-810"/>
                 </div>
@@ -155,7 +156,7 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
                 </div>
                 <Button 
                 loading={isPending}
-                text="Create" type="submit"/>
+                text="Update" type="submit"/>
               </form>
               </div>
             </div>

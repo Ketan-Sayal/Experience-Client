@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { toast } from 'sonner';
 import type { AxiosError } from 'axios';
+import TextArea from './TextArea';
 
 interface IModal{
     open:boolean;
@@ -77,10 +78,10 @@ const Modal = ({setOpen, open}:IModal) => {
 
   return (
     <div 
-      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-6 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
+      className="fixed inset-0 rounded-md top-0 left-0 w-screen h-screen flex p-5 pt-8 md:pt-0 lg:p-0 lg:justify-center lg:items-center bg-black/50 z-10">
             <div 
             ref={modalRef}
-            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[90vh] relative">
+            className="bg-white w-[90vw] md:w-[95vw] lg:w-1/2 min-h-96 rounded-md max-h-[75vh] md:max-h-[90vh] relative">
               <div className="absolute top-3 right-3">
                   <Button onlyYellow={false}
                    onClick={()=>setOpen(false)}
@@ -89,7 +90,7 @@ const Modal = ({setOpen, open}:IModal) => {
                    padding="p-0"
                    endIcon={<Cross/>}/>
               </div>
-              <div className="max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar">
+              <div className="max-h-[75vh] md:max-h-[90vh] overflow-y-auto rounded-md thin-scrollbar">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full px-5 py-4 flex flex-col gap-3">
                 <h1 className="text-center text-lg text-gray-810">Create Experience</h1>
                 <div className="flex flex-col gap-2">
@@ -101,7 +102,7 @@ const Modal = ({setOpen, open}:IModal) => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810">Description*</h1>
-                  <Input 
+                  <TextArea 
                   {...register("description", {required:{value:true, message:"Description is required"}})}
                   placeholder="It will be a good experience" className="text-gray-810"/>
                   {errors.description && <p className='text-xs text-red-500'>{errors.description.message}</p>}

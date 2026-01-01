@@ -75,7 +75,7 @@ const Checkout = () => {
     const payAmmount = async()=>{
         const token = Cookies.get("auth-booklit-token")||"";
         if(!token || user._id===null){
-            navigate("/login");
+            toast.error("User must be logged in");
             return;
         }
         try {
@@ -187,7 +187,7 @@ const Checkout = () => {
                 </div>
                 <Button 
                 onClick={payAmmount}
-                disabled={isPending || isLoadingBooking}
+                loading={isPending || isLoadingBooking}
                 text="Pay and Confirm"/>
             </div>
       </div>

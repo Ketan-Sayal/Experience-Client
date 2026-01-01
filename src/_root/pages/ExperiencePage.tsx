@@ -13,6 +13,7 @@ import { setDate } from "../../features/dateSlice"
 import { setTime } from "../../features/timeSlice"
 import { setExperience } from "../../features/experienceSlice"
 import { useEffect } from "react"
+import { toast } from "sonner"
 
 
 const ExperiencePage = () => {
@@ -68,7 +69,11 @@ const ExperiencePage = () => {
                           dispatch(increase());
                           const subT = (quantity.value+1)*parseInt(experienceData?.experience?.price);
                           dispatch(setSubTotal(subT));
-                        }}}
+                        }else{
+                          toast.error("Please select date and time");
+                        }
+                      
+                      }}
                          className="text-gray-810 p-2 cursor-pointer">
                             +
                          </div>
@@ -79,6 +84,8 @@ const ExperiencePage = () => {
                             dispatch(decrease());
                             const subT = (quantity.value-1)*parseInt(experienceData?.experience?.price);
                             dispatch(setSubTotal(subT));
+                          }else{
+                            toast.error("Please select date and time");
                           }
                         }}
                          className="text-gray-810 p-2 cursor-pointer">
@@ -128,6 +135,8 @@ const ExperiencePage = () => {
                           dispatch(increase());
                           const subT = (quantity.value+1)*parseInt(experienceData?.experience?.price);
                           dispatch(setSubTotal(subT));
+                        }else{
+                          toast.error("Please select date and time");
                         }}}
                          className="text-gray-810 p-2 cursor-pointer">
                             +
@@ -139,6 +148,8 @@ const ExperiencePage = () => {
                             dispatch(decrease());
                             const subT = (quantity.value-1)*parseInt(experienceData?.experience?.price);
                             dispatch(setSubTotal(subT));
+                          }else{
+                            toast.error("Please select date and time");
                           }
                         }}
                          className="text-gray-810 p-2 cursor-pointer">

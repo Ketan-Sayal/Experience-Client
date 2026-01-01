@@ -50,7 +50,7 @@ const BottomBar = ({ date, setDate, time, setTime, experience=null }: IBottomBar
   return (
     <div className="pt-4 flex flex-col gap-3 w-full md:w-[65%]">
       <h1 className="text-lg">{(experience && experience?.title) || ''}</h1>
-      <p className="text-gray-810 md:text-pretty text-justify">
+      <p className="text-gray-810 md:text-pretty text-justify text-wrap overflow-hidden">
         {(experience && experience?.description) || "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
       </p>
 
