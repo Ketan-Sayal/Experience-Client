@@ -120,15 +120,16 @@ const Checkout = () => {
             onSubmit={handleSubmit(promoCodeSubmit)}
             className="flex flex-col gap-4 w-full">
                 <div className="flex gap-4 w-full">
-                    <div className="flex flex-col gap-3 w-[50%]">
+                    <div className="flex flex-col gap-3 w-[45%] lg:w-[50%]">
                         <p className="text-gray-400 text-base">Full Name</p>
-                        <Input placeholder="Your name" {...register("name", {required:{
+                        <Input 
+                        placeholder="Your name" {...register("name", {required:{
                             value:true,
                             message:"Name is required"
                         }})}/>
                         {errors.name?.message && <p className="text-xs text-red-500">{errors.name.message}</p>}
                     </div>
-                    <div className="flex flex-col gap-3 w-[50%]">
+                    <div className="flex flex-col gap-3 w-[50%] lg:w-[50%]">
                         <p className="text-gray-400 text-base">Email</p>
                         <Input placeholder="Your email" {...register("email", {required:{
                             value:true,
@@ -153,7 +154,7 @@ const Checkout = () => {
         <div className="bg-gray-50 p-4 w-full md:w-[50%] flex flex-col gap-1 rounded-lg max-h-fit">
                 <div className="flex justify-between items-center">
                     <p className="text-xs text-gray-810">Experience</p>
-                    <p className="text-xs">{experience?.title}</p>
+                    <p className="text-xs">{`${experience.title.length>19?experience.title.substring(0, 20)+"...":experience.title}`}</p>
                 </div>
 
                 <div className="flex justify-between items-center">
