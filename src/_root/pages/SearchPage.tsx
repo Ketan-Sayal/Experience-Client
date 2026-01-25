@@ -31,7 +31,7 @@ const SearchPage = () => {
         description={description} 
         />)}
         </>
-      ):(<p className='text-gray-500 pt-2 w-screen text-xs text-center'>
+      ):(<p className='text-gray-500 dark:text-gray-400 pt-2 w-screen text-xs text-center'>
         No results found
       </p>)}
       </div>

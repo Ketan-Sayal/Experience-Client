@@ -8,7 +8,7 @@ const AdminLayout = () => {
         return <Navigate to={"/"}/>
     }
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-black overflow-hidden">
       <div className="w-full">
         <TopBar/>
       </div>

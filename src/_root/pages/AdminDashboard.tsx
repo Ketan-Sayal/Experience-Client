@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
   if(isLoading){
     return <div className="w-full pt-2">
-        <h4 className='text-gray-500 pt-2 text-xs text-center'>Loading...</h4>
+        <h4 className='text-gray-500 dark:text-gray-400 pt-2 text-xs text-center'>Loading...</h4>
     </div>
   }
 
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
     <div className="w-full h-full overflow-auto p-1 md:p-4">
       {open && <Modal open={open} setOpen={setOpen}/>}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        <div className="w-full xl:w-64 xl:relative xl:top-14 h-[12rem] bg-gray-100 rounded-lg shadow flex justify-center items-center">
+        <div className="w-full xl:w-64 xl:relative xl:top-14 h-[12rem] bg-gray-100 dark:bg-gray-800 rounded-lg shadow flex justify-center items-center border border-gray-200 dark:border-gray-700">
             <Button 
             onClick={()=>setOpen(true)}
             text="Create" className="max-w-fit" endIcon={<Plus/>}/>

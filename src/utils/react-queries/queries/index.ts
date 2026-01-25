@@ -101,66 +101,72 @@ const payNow = async({token, amount, user, experienceId, date, timings}:{token:s
         });
 
         const order = response.data?.data?.order;
-
-        // Open Razorpay Checkout
          return new Promise<string>((resolve, reject) => {
-            const options = {
-                key: config.razorPayApiKeyId,
-                amount: amount, // Remove template literal, just use number
-                currency: 'INR',
-                name: 'Test Corp',
-                description: 'Test Transaction',
-                order_id: order?.id,
-                handler: async(response: {
-                    razorpay_payment_id: string;
-                    razorpay_order_id: string;
-                    razorpay_signature: string;
-                }) => {
-                    try {
-                        const res = await axios.post(
-                            `${config.backendUrl}/api/v1/experiences/order/validate`, 
-                            {...response}, 
-                            { headers: { "Content-Type":"application/json", "Authorization":token }}
-                        );
-                        
-                        if(!res.data.success){
-                            reject(new Error("Invalid payment"));
-                            return;
-                        }
+            const checkRazorpay = () => {
+                if (window.Razorpay) {
+                    const options = {
+                        key: config.razorPayApiKeyId,
+                        amount: amount, // Remove template literal, just use number
+                        currency: 'INR',
+                        name: 'Test Corp',
+                        description: 'Test Transaction',
+                        order_id: order?.id,
+                        handler: async(response: {
+                            razorpay_payment_id: string;
+                            razorpay_order_id: string;
+                            razorpay_signature: string;
+                        }) => {
+                            try {
+                                const res = await axios.post(
+                                    `${config.backendUrl}/api/v1/experiences/order/validate`, 
+                                    {...response}, 
+                                    { headers: { "Content-Type":"application/json", "Authorization":token }}
+                                );
+                                
+                                if(!res.data.success){
+                                    reject(new Error("Invalid payment"));
+                                    return;
+                                }
 
-                        await axios.post(
-                            `${config.backendUrl}/api/v1/experiences/bookings`, 
-                            {experienceId, date, timings}, 
-                            { headers: { Authorization:token }}
-                        );
-                        
-                        resolve(experienceId); // Resolves the Promise
-                    } catch (error) {
-                        reject(error); // Rejects the Promise
-                    }
-                },
-                prefill: {
-                    name: user.username,
-                    email: user.email,
-                    contact: ""
-                },
-                theme: {
-                    color: '#F37254'
-                },
-                modal: {
-                    ondismiss: () => {
-                        reject(new Error("Payment cancelled"));
-                    }
+                                await axios.post(
+                                    `${config.backendUrl}/api/v1/experiences/bookings`, 
+                                    {experienceId, date, timings}, 
+                                    { headers: { Authorization:token }}
+                                );
+                                
+                                resolve(experienceId); // Resolves the Promise
+                            } catch (error) {
+                                reject(error); // Rejects the Promise
+                            }
+                        },
+                        prefill: {
+                            name: user.username,
+                            email: user.email,
+                            contact: ""
+                        },
+                        theme: {
+                            color: '#F37254'
+                        },
+                        modal: {
+                            ondismiss: () => {
+                                reject(new Error("Payment cancelled"));
+                            }
+                        }
+                    };
+
+                    const rzp = new window.Razorpay(options);
+                    
+                    rzp.on("payment.failed", () => {
+                        reject(new Error("Payment failed"));
+                    });
+                    
+                    rzp.open();
+                } else {
+                    setTimeout(checkRazorpay, 100);
                 }
             };
 
-            const rzp = new window.Razorpay(options);
-            
-            rzp.on("payment.failed", () => {
-                reject(new Error("Payment failed"));
-            });
-            
-            rzp.open();
+            checkRazorpay();
         });
     } catch (error) {
         console.error(error);

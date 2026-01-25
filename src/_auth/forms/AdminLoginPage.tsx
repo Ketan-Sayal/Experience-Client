@@ -46,9 +46,9 @@ const AdminLoginPage = () => {
       }
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <form  onSubmit={handleSubmit(onSubmit)} className="bg-gray-50 flex flex-col gap-3 p-4 rounded-md w-96">
-        <h1 className="text-xl">Admin Signin:</h1>
+    <div className="w-screen h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-900">
+      <form  onSubmit={handleSubmit(onSubmit)} className="bg-gray-50 dark:bg-gray-800 flex flex-col gap-3 p-4 rounded-md w-96 border border-gray-200 dark:border-gray-700">
+        <h1 className="text-xl text-gray-800 dark:text-white">Admin Signin:</h1>
         <Input type="email" placeholder="Email" {...register("email", {required:{
           value:true,
           message:"Email is required"

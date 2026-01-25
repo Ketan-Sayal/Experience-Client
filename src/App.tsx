@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 import MainSkeleton from "./components/MainSkeleton";
 import { adminLogin, adminLogout } from "./features/adminSlice";
 import { Toaster } from "./components/ui/sonner";
+import { useAppSelector } from "./hooks/useRootState";
 
 
 
@@ -15,6 +16,7 @@ function App() {
   //const naviagate = useNavigate();
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
+  const theme = useAppSelector((state) => state.theme.theme);
 
   const updateLoading = useEffectEvent(()=>{
     setLoading(false);
@@ -55,6 +57,10 @@ function App() {
       updateLoading();
     }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
   
 
   return !loading?(

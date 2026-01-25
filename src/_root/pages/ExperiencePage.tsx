@@ -54,15 +54,15 @@ const ExperiencePage = () => {
         <p className="font-semibold text-xs">Details</p>
       </div>
 
-        <div className="bg-gray-50 mt-4 p-4 md:hidden flex flex-col gap-1 rounded-lg w-full">
+        <div className="bg-gray-50 dark:bg-gray-800 mt-4 p-4 md:hidden flex flex-col gap-1 rounded-lg w-full border border-gray-200 dark:border-gray-700">
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Starts at</p>
-                    <p className="text-xs">₹{experienceData?.experience?.price || 999}</p>
+                    <p className="text-xs text-gray-810 dark:text-gray-300">Starts at</p>
+                    <p className="text-xs text-black dark:text-white">₹{experienceData?.experience?.price || 999}</p>
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Quantity</p>
-                    <div className="text-xs text-gray-810 flex gap-1 items-center">
+                    <p className="text-xs text-gray-810 dark:text-gray-300">Quantity</p>
+                    <div className="text-xs text-gray-810 dark:text-gray-300 flex gap-1 items-center">
                          <div 
                          onClick={()=>{
                           if(date.value && time.value){
@@ -74,7 +74,7 @@ const ExperiencePage = () => {
                         }
                       
                       }}
-                         className="text-gray-810 p-2 cursor-pointer">
+                         className="text-gray-810 dark:text-gray-300 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                             +
                          </div>
                          {quantity.value}
@@ -88,15 +88,15 @@ const ExperiencePage = () => {
                             toast.error("Please select date and time");
                           }
                         }}
-                         className="text-gray-810 p-2 cursor-pointer">
+                         className="text-gray-810 dark:text-gray-300 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                             -
                          </div>
                     </div>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Subtotal</p>
-                    <p className="text-xs text-gray-810">₹{subtotal.value>parseInt(experienceData?.experience?.price)?subtotal.value:experienceData?.experience?.price}</p>
+                    <p className="text-xs text-gray-810 dark:text-gray-300">Subtotal</p>
+                    <p className="text-xs text-gray-810 dark:text-gray-300">₹{subtotal.value>parseInt(experienceData?.experience?.price)?subtotal.value:experienceData?.experience?.price}</p>
                 </div>
                 
                 <div className="flex justify-between items-center pt-2">
@@ -109,6 +109,7 @@ const ExperiencePage = () => {
                     <p className="text-base font-semibold">₹{subtotal.value>parseInt(experienceData?.experience?.price)?subtotal.value+59:parseInt(experienceData?.experience?.price)+59}</p>
                 </div>
                 <Button 
+                className="dark:text-black"
                 onClick={()=>{
                   navigate(`/checkout/${experienceData?.experience?._id}`);
                   dispatch(setExperience(experienceData?.experience));
@@ -120,7 +121,7 @@ const ExperiencePage = () => {
             <div className="w-full md:w-[109%] h-[300px]">
                 <img src={experienceData?.experience?.pic || image} alt="place-pic"  className="w-full h-full rounded-lg"/>
             </div>
-            <div className="bg-gray-50 p-4 w-[50%] hidden md:flex flex-col gap-1 rounded-lg max-h-fit">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 w-[50%] border border-gray-200 dark:border-gray-700 hidden md:flex flex-col gap-1 rounded-lg max-h-fit">
                 <div className="flex justify-between items-center">
                     <p className="text-xs text-gray-810">Starts at</p>
                     <p className="text-xs">₹{experienceData?.experience?.price || 999}</p>
@@ -173,6 +174,7 @@ const ExperiencePage = () => {
                     <p className="text-base font-semibold">₹{subtotal.value>parseInt(experienceData?.experience?.price)?subtotal.value+59:parseInt(experienceData?.experience?.price)+59}</p>
                 </div>
                 <Button 
+                className="dark:text-black"
                 onClick={()=>{
                   navigate(`/checkout/${experienceData?.experience?._id}`);
                   dispatch(setExperience(experienceData?.experience));

@@ -13,8 +13,8 @@ const Home = () => {
       dataLength={totalDataLength}
       next={fetchNextPage}
       hasMore={hasNextPage || false}
-      loader={<h4 className='text-gray-500 pt-2 text-xs text-center'>Loading...</h4>}
-      endMessage={<h4 className='text-gray-500 pt-2 text-xs text-center'>No more results</h4>}
+      loader={<h4 className='text-gray-500 dark:text-gray-400 pt-2 text-xs text-center'>Loading...</h4>}
+      endMessage={<h4 className='text-gray-500 dark:text-gray-400 pt-2 text-xs text-center'>No more results</h4>}
     >
       <div className="w-full grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {items && items.pages.length>0 && items.pages.map((group, i) => (

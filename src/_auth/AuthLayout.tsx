@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAppSelector } from '../hooks/useRootState'
+import ThemeToggle from '../components/ThemeToggle'
 
 const AuthLayout = () => {
 
@@ -10,7 +11,10 @@ const AuthLayout = () => {
     }
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full relative'>
+      <div className='absolute top-4 right-4 z-10'>
+        <ThemeToggle />
+      </div>
       <Outlet/>
     </div>
   )

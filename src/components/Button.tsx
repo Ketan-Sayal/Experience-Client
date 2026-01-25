@@ -33,7 +33,7 @@ const Button = ({
     loadingText="Loading",
     ...props
 }:IButton) => {
-  const defaultStyles = `${padding} w-full text-center text-black px-2 py-2 lg:px-3 lg:py-2 font-medium disabled:bg-gray-600 disabled:text-gray-500 text-xs xl:text-sm xl:text-base`;
+  const defaultStyles = `${padding} w-full text-center ${onlyYellow ? 'text-black' : 'text-black dark:text-black'} px-2 py-2 lg:px-3 lg:py-2 font-medium disabled:bg-gray-600 disabled:text-gray-500 text-xs xl:text-sm xl:text-base`;
   return (
     <button 
     type={type}

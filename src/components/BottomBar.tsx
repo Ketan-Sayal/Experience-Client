@@ -50,7 +50,7 @@ const BottomBar = ({ date, setDate, time, setTime, experience=null }: IBottomBar
   return (
     <div className="pt-4 flex flex-col gap-3 w-full md:w-[65%]">
       <h1 className="text-lg">{(experience && experience?.title) || ''}</h1>
-      <p className="text-gray-810 md:text-pretty text-justify text-wrap overflow-hidden">
+      <p className="text-gray-810 dark:text-gray-300 md:text-pretty text-justify text-wrap overflow-hidden">
         {(experience && experience?.description) || "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
       </p>
 
@@ -59,7 +59,7 @@ const BottomBar = ({ date, setDate, time, setTime, experience=null }: IBottomBar
         <>
           {/* Date Section */}
           <div className="pt-2 flex flex-col gap-3">
-            <h2 className="font-semibold text-black">Choose Date</h2>
+            <h2 className="font-semibold text-black dark:text-white">Choose Date</h2>
             <div className="flex gap-2 items-center">
               {experience?.bookingsData?.map((data, i:number)=>new Date(new Date().setHours(0, 0, 0, 0)).getTime()<=new Date(data.date).getTime()?<ToggleButton key={i} text={`${new Date(data?.date)?.toLocaleString("en-US", {month:"short"})} ${new Date(data?.date)?.getDate()}, ${new Date(data.date).getFullYear()}`} onClick={() => {
               setDate(new Date(data?.date));
@@ -72,24 +72,24 @@ const BottomBar = ({ date, setDate, time, setTime, experience=null }: IBottomBar
         </>
       ) : (
         <div className="flex flex-col gap-3">
-          <p className="font-semibold text-black">Bookings</p>
-          <div className="px-3 py-1 w-fit rounded-md bg-gray-700">
+          <p className="font-semibold text-black dark:text-white">Bookings</p>
+          <div className="px-3 py-1 w-fit rounded-md bg-gray-700 dark:bg-gray-600">
             <p>No Bookings available</p>
           </div>
         </div>
       )}
       {dateI!==-1 && <div className="pt-2 flex flex-col gap-3">
-            <h2 className="font-semibold text-black">Choose Time</h2>
+            <h2 className="font-semibold text-black dark:text-white">Choose Time</h2>
             <div className="flex gap-2 items-center">
               {experience?.bookingsData[dateI]?.timings.map((timeF)=><ToggleButton  key={timeF} text={timeF} onClick={() => setTime(timeF)} value={time} />)}
               
             </div>
           </div>}
-      {experience && experience?.bookingsData?.length>0 && <p className="text-gray-810 text-xs">All times are in IST (GMT +530)</p>}
+      {experience && experience?.bookingsData?.length>0 && <p className="text-gray-810 dark:text-gray-300 text-xs">All times are in IST (GMT +530)</p>}
      
       <div className="flex flex-col gap-3">
-        <p className="font-semibold text-black">Destination</p>
-        <div className="px-3 py-1 w-fit rounded-md bg-gray-700">
+        <p className="font-semibold text-black dark:text-white">Destination</p>
+        <div className="px-3 py-1 w-fit rounded-md bg-gray-700 dark:bg-gray-800">
           <p>{(experience && experience?.place) || 'Hell'}</p>
         </div>
       </div>

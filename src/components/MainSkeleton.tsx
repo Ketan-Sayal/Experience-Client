@@ -3,17 +3,17 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const MainSkeleton = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="px-4 lg:px-24 py-4 flex items-center justify-between shadow-lg">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <div className="px-4 lg:px-24 py-4 flex items-center justify-between shadow-lg bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div>
-          <Skeleton width={80} height={28} className="lg:!w-[100px] lg:!h-[32px]" />
+          <Skeleton width={80} height={28} className="lg:!w-[100px] lg:!h-[32px]" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
         </div>
         <div className="hidden lg:flex gap-2">
-          <Skeleton width={200} height={40} borderRadius="0.375rem" />
-          <Skeleton width={80} height={40} borderRadius="0.375rem" />
+          <Skeleton width={200} height={40} borderRadius="0.375rem" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
+          <Skeleton width={80} height={40} borderRadius="0.375rem" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
         </div>
         <div className="lg:hidden">
-          <Skeleton width={32} height={32} />
+          <Skeleton width={32} height={32} baseColor="#e5e7eb" highlightColor="#f3f4f6" />
         </div>
       </div>
       <div className="w-full px-4 py-4 sm:px-6 md:px-8 lg:px-24">
@@ -21,20 +21,20 @@ const MainSkeleton = () => {
           {Array(6)
             .fill(0)
             .map((_, i) => (
-              <div key={i} className="flex flex-col gap-2 p-2 rounded-lg">
+              <div key={i} className="flex flex-col gap-2 p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                 <div className="w-full h-48 md:h-40 lg:h-48">
-                  <Skeleton height="100%" borderRadius="0.5rem" className="block" />
+                  <Skeleton height="100%" borderRadius="0.5rem" className="block" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
                 </div>
                 <div className="flex justify-between items-center mt-1">
-                  <Skeleton width={100} height={20} />
-                  <Skeleton width={60} height={24} borderRadius="0.25rem" />
+                  <Skeleton width={100} height={20} baseColor="#e5e7eb" highlightColor="#f3f4f6" />
+                  <Skeleton width={60} height={24} borderRadius="0.25rem" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
                 </div>
                 <div className="mt-1">
-                  <Skeleton count={2} />
+                  <Skeleton count={2} baseColor="#e5e7eb" highlightColor="#f3f4f6" />
                 </div>
                 <div className="mt-2 flex justify-between items-center">
-                  <Skeleton width={70} height={20} />
-                  <Skeleton width={90} height={36} borderRadius="0.375rem" />
+                  <Skeleton width={70} height={20} baseColor="#e5e7eb" highlightColor="#f3f4f6" />
+                  <Skeleton width={90} height={36} borderRadius="0.375rem" baseColor="#e5e7eb" highlightColor="#f3f4f6" />
                 </div>
               </div>
             ))}

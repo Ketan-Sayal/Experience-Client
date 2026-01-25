@@ -6,6 +6,7 @@ import dateReducer from "../features/dateSlice";
 import timeReducer from "../features/timeSlice";
 import experienceReducer from "../features/experienceSlice";
 import adminReducer from "../features/adminSlice";
+import themeReducer from "../features/themeSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     time:timeReducer,
     experience: experienceReducer,
     admin:adminReducer,
+    theme: themeReducer,
   },
 });
 

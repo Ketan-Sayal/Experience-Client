@@ -112,16 +112,16 @@ const Checkout = () => {
             navigate(`/experience/details/${id}`);
         }}
         />
-        <p className="font-semibold text-xs">Checkout</p>
+        <p className="font-semibold text-xs text-black dark:text-white">Checkout</p>
       </div>
       <div className="pt-4 flex flex-col md:flex-row gap-7 w-full">
-        <div className="bg-gray-50 p-4 w-full md:w-[60%] h-fit rounded-md">
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 w-full md:w-[60%] h-fit rounded-md border border-gray-200 dark:border-gray-700">
             <form 
             onSubmit={handleSubmit(promoCodeSubmit)}
             className="flex flex-col gap-4 w-full">
                 <div className="flex gap-4 w-full">
                     <div className="flex flex-col gap-3 w-[45%] lg:w-[50%]">
-                        <p className="text-gray-400 text-base">Full Name</p>
+                        <p className="text-gray-400 dark:text-gray-300 text-base">Full Name</p>
                         <Input 
                         placeholder="Your name" {...register("name", {required:{
                             value:true,
@@ -130,7 +130,7 @@ const Checkout = () => {
                         {errors.name?.message && <p className="text-xs text-red-500">{errors.name.message}</p>}
                     </div>
                     <div className="flex flex-col gap-3 w-[50%] lg:w-[50%]">
-                        <p className="text-gray-400 text-base">Email</p>
+                        <p className="text-gray-400 dark:text-gray-300 text-base">Email</p>
                         <Input placeholder="Your email" {...register("email", {required:{
                             value:true,
                             message:"Email is required"
@@ -146,47 +146,47 @@ const Checkout = () => {
                     }})}/>
                     
                     </div>
-                    {errors.promo_code?.message && <p className="text-xs text-red-500">{errors.promo_code.message}</p>}
-                    <Button type="submit" text="Apply" onlyYellow={false} className="bg-black max-w-fit text-white"/>
+                    {errors.promo_code?.message && <p className="text-xs text-red-500">{errors.promo_code.message}</p>}                    <Button type="submit" text="Apply" onlyYellow={false} className="bg-black dark:bg-gray-200 hover:bg-gray-800 dark:hover:bg-gray-300 max-w-fit text-white dark:text-black border border-gray-300 dark:border-gray-500"/>
                 </div>
             </form>
         </div>
-        <div className="bg-gray-50 p-4 w-full md:w-[50%] flex flex-col gap-1 rounded-lg max-h-fit">
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 w-full md:w-[50%] flex flex-col gap-1 rounded-lg max-h-fit border border-gray-200 dark:border-gray-700">
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Experience</p>
-                    <p className="text-xs">{`${experience.title.length>19?experience.title.substring(0, 20)+"...":experience.title}`}</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Experience</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">{`${experience.title.length>19?experience.title.substring(0, 20)+"...":experience.title}`}</p>
                 </div>
 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Date</p>
-                    <p className="text-xs">{`${new Date(date).toLocaleString("en-US", {month:"short"})} ${new Date(date).getDate()}, ${new Date(date).getFullYear()}`}</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Date</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">{`${new Date(date).toLocaleString("en-US", {month:"short"})} ${new Date(date).getDate()}, ${new Date(date).getFullYear()}`}</p>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Time</p>
-                    <p className="text-xs text-gray-810">{time}</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Time</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">{time}</p>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Qty</p>
-                    <p className="text-xs text-gray-810">{quantity}</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Qty</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">{quantity}</p>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Subtotal</p>
-                    <p className="text-xs text-gray-810">₹{(prevSub>0 && discount>0)?`${prevSub} - ₹${discount}`:subTotal}</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Subtotal</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">₹{(prevSub>0 && discount>0)?`${prevSub} - ₹${discount}`:subTotal}</p>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-810">Taxes</p>
-                    <p className="text-xs text-gray-810">₹59</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">Taxes</p>
+                    <p className="text-xs text-gray-800 dark:text-gray-300">₹59</p>
                 </div>
                 <hr className="text-gray-810 font-bold"/>
                 <div className="flex justify-between py-3 items-center">
-                    <p className="text-base font-semibold">Total</p>
-                    <p className="text-base font-semibold">₹{subTotal+59}</p>
+                    <p className="text-base font-semibold text-gray-800 dark:text-white">Total</p>
+                    <p className="text-base font-semibold text-gray-800 dark:text-white">₹{subTotal+59}</p>
                 </div>
                 <Button 
+                className="dark:text-black"
                 onClick={payAmmount}
                 loading={isPending || isLoadingBooking}
                 text="Pay and Confirm"/>

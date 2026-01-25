@@ -4,7 +4,7 @@ import TopBar from "../components/TopBar"
 const RootLayout = () => {
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-black">
       <div className="w-full">
         <TopBar/>
       </div>
