@@ -11,15 +11,15 @@ const SearchPageSkeleton = () => {
                 .map((_, i) => (
                   <div key={i} className="flex flex-col gap-2 p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                     <div className="w-full h-48">
-                      <Skeleton height="100%" borderRadius="0.5rem" className="block" baseColor="#374151" highlightColor="#4b5563" />
+                      <Skeleton height="100%" borderRadius="0.5rem" className="block"   highlightColor="#4b5563" />
                     </div>
                     <div className="flex justify-between items-center mt-1">
-                      <Skeleton width={100} height={20} baseColor="#374151" highlightColor="#4b5563" />
-                      <Skeleton width={40} height={20} baseColor="#374151" highlightColor="#4b5563" />
+                      <Skeleton width={100} height={20}   highlightColor="#4b5563" />
+                      <Skeleton width={40} height={20}   highlightColor="#4b5563" />
                     </div>
-                    <Skeleton width={80} height={16} baseColor="#374151" highlightColor="#4b5563" />
+                    <Skeleton width={80} height={16}   highlightColor="#4b5563" />
                     <div className="mt-1">
-                      <Skeleton count={2} baseColor="#374151" highlightColor="#4b5563" />
+                      <Skeleton count={2}   highlightColor="#4b5563" />
                     </div>
                   </div>
                 ))}
