@@ -103,7 +103,7 @@ const TopBar = () => {
           onClick={()=>{
             setOpen(!open);
           }}
-          onlyYellow={false} endIcon={<Options/>} className="block md:hidden max-w-fit px-3"/>
+          onlyYellow={false} endIcon={<Options/>} className="block md:hidden max-w-fit px-3 dark:text-white"/>
         </div>
       </div>
 
