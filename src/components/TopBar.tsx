@@ -90,7 +90,7 @@ const TopBar = () => {
           )}
         </div>
         <div className="flex gap-2 flex-shrink-0">
-          <Input ref={searchRef} placeholder="Search here" className="bg-gray-200 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-400 outline-none w-32 sm:w-48 md:w-64 hidden md:block text-gray-900 dark:text-gray-100 placeholder:text-gray-600 dark:placeholder:text-gray-400"/>
+          <Input ref={searchRef} placeholder="Search here" className="bg-gray-200 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-400 outline-none w-32 sm:w-48 md:w-64 hidden md:block text-gray-900 dark:text-gray-810 placeholder:text-gray-600 dark:placeholder:text-gray-400"/>
           <Button text="Search" className="max-w-fit hidden md:block bg-yellow-600 hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-500 text-black font-medium px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" onClick={()=>{
             const searchVal = searchRef.current?.value;
             if(searchRef.current && searchVal){
