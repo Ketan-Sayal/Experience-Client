@@ -81,7 +81,7 @@ const TopBar = () => {
             onClick={()=>{
               navigate("/admin/dashboard");
             }}
-            className="hover:bg-gray-800 dark:hover:bg-yellow-600 dark:text-white dark:hover:text-black duration-200 md:block hidden" text="Dashboard" onlyYellow={false} startIcon={<Admin/>}/>
+            className="hover:bg-gray-800 hover:text-yellow-600 duration-200 md:block hidden dark:hover:bg-yellow-600 dark:text-white dark:hover:text-black" text="Dashboard" onlyYellow={false} startIcon={<Admin/>}/>
             </>
           ):(<>
             <Button text="Login" onlyYellow={false} className="bg-gray-900 dark:bg-yellow-600 text-yellow-600 dark:hover:bg-yellow-500 duration-200 md:block hidden shadow-md hover:shadow-lg transform hover:scale-105 transition-all font-medium px-4 py-2 rounded-lg border border-gray-600 dark:border-yellow-500" onClick={()=>navigate("/login")} endIcon={<Login/>}/>
