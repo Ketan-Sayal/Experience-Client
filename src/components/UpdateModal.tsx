@@ -103,56 +103,56 @@ const UpdateModal = ({setOpen, open, _id}:IUpdateModal) => {
                   <h1 className="text-gray-810 dark:text-gray-200">Title</h1>
                   <Input 
                   {...register("title")}
-                  placeholder="My Experience" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="My Experience" className="text-gray-810 dark:text-black"/>
                   
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Description</h1>
                   <TextArea
                   {...register("description")}
-                  placeholder="It will be a good experience" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="It will be a good experience" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Price</h1>
                   <Input 
                   {...register("price")}
-                  placeholder="0" type="number" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="0" type="number" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Place</h1>
                   <Input 
                   {...register("place")}
-                  placeholder="Chandigarh" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="Chandigarh" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Add Timings</h1>
                   <Input 
                   {...register("timings")}
-                  placeholder="7AM 8:30PM" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="7AM 8:30PM" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Add Offer Code</h1>
                   <Input 
                   {...register("offerCode")}
-                  placeholder="DIVE30" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="DIVE30" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Add Offer Percent</h1>
                   <Input 
                   {...register("offerPercent")}
-                  placeholder="0" type="number" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="0" type="number" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Date</h1>
                   <Input 
                   {...register("date")}
-                  placeholder="" type="date" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="" type="date" className="text-gray-810 dark:text-black"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Pic</h1>
                   <Input 
                   {...register("pic")}
-                  placeholder="" type="file" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="" type="file" className="text-gray-810 dark:text-black"/>
                 </div>
                 <Button 
                 loading={isPending}

@@ -97,61 +97,61 @@ const Modal = ({setOpen, open}:IModal) => {
                   <h1 className="text-gray-810 dark:text-gray-200">Title*</h1>
                   <Input 
                   {...register("title", {required:{value:true, message:"Title is required"}})}
-                  placeholder="My Experience" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="My Experience" className="text-gray-810 dark:text-black"/>
                   {errors.title && <p className='text-xs text-red-500'>{errors.title.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Description*</h1>
                   <TextArea 
                   {...register("description", {required:{value:true, message:"Description is required"}})}
-                  placeholder="It will be a good experience" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="It will be a good experience" className="text-gray-810"/>
                   {errors.description && <p className='text-xs text-red-500'>{errors.description.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Price*</h1>
                   <Input 
                   {...register("price", {required:{value:true, message:"Price is required"}})}
-                  placeholder="0" type="number" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="0" type="number" className="text-gray-810"/>
                   {errors.price && <p className='text-xs text-red-500'>{errors.price.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Place*</h1>
                   <Input 
                   {...register("place", {required:{value:true, message:"Place is required"}})}
-                  placeholder="Chandigarh" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="Chandigarh" className="text-gray-810"/>
                   {errors.place && <p className='text-xs text-red-500'>{errors.place.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Timings*</h1>
                   <Input 
                   {...register("timings", {required:{value:true, message:"Timings are required"}})}
-                  placeholder="7AM 8:30PM" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="7AM 8:30PM" className="text-gray-810"/>
                   {errors.timings && <p className='text-xs text-red-500'>{errors.timings.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Offer Code</h1>
                   <Input 
                   {...register("offerCode")}
-                  placeholder="DIVE30" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="DIVE30" className="text-gray-810"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Offer Percent</h1>
                   <Input 
                   {...register("offerPercent")}
-                  placeholder="0" type="number" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="0" type="number" className="text-gray-810"/>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Date*</h1>
                   <Input 
                   {...register("date", {required:{value:true, message:"Date is required"}})}
-                  placeholder="" type="date" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="" type="date" className="text-gray-810"/>
                   {errors.date && <p className='text-xs text-red-500'>{errors.date.message}</p>}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-gray-810 dark:text-gray-200">Pic*</h1>
                   <Input 
                   {...register("pic", {required:{value:true, message:"Pic is required"}})}
-                  placeholder="" type="file" className="text-gray-810 dark:text-gray-200"/>
+                  placeholder="" type="file" className="text-gray-810"/>
                   {errors.pic && <p className='text-xs text-red-500'>{errors.pic.message}</p>}
                 </div>
                 <Button 
